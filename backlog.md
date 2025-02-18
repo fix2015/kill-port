@@ -1,0 +1,1 @@
+- Check on new version of mac (macOS 15 Sequoia)
