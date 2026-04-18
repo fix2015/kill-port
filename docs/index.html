@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kill-port — Kill the process running on a given port</title>
+  <meta name="description" content="Kill the process running on a given port">
+  <meta name="author" content="Vitalii Semianchuk">
+  <meta property="og:title" content="kill-port">
+  <meta property="og:description" content="Kill the process running on a given port">
+  <meta property="og:url" content="https://fix2015.github.io/kill-port">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+  <button class="hamburger" aria-label="Menu">&#9776;</button>
+  <a href="#" class="header-brand"><span>kill</span>-port</a>
+  <div class="header-links">
+    <a href="https://github.com/fix2015/kill-port" target="_blank">GitHub</a>
+    <a href="https://www.npmjs.com/package/kill-port" target="_blank">npm</a>
+  </div>
+</header>
+<div class="sidebar-overlay"></div>
+<nav class="sidebar">
+  <div class="sidebar-group">
+    <div class="sidebar-group-title">Getting Started</div>
+    <a href="#overview">Overview</a>
+    <a href="#quickstart">Quick Start</a>
+  </div>
+  <div class="sidebar-group">
+    <div class="sidebar-group-title">Commands</div>
+    <a href="#install-cmd">Install</a>
+    <a href="#search">Search</a>
+    <a href="#list">List</a>
+    <a href="#info">Info</a>
+    <a href="#tags">Tags</a>
+    <a href="#sources">Sources</a>
+    <a href="#update">Update</a>
+  </div>
+  <div class="sidebar-group">
+    <div class="sidebar-group-title">More</div>
+    <a href="#json">JSON Output</a>
+    <a href="#api">Programmatic API</a>
+  </div>
+</nav>
+<div class="main">
+<div class="hero">
+  <h1>kill-port</h1>
+  <p class="subtitle">Kill the process running on a given port</p>
+  <div class="install-cmd"><code>npx kill-port install &lt;name&gt;</code></div>
+  <div class="hero-buttons">
+    <a href="#quickstart" class="btn btn-primary">Get Started</a>
+    <a href="https://github.com/fix2015/kill-port" target="_blank" class="btn btn-outline">GitHub</a>
+    <a href="https://www.npmjs.com/package/kill-port" target="_blank" class="btn btn-outline">npm</a>
+  </div>
+</div>
+<div class="content">
+<div class="features">
+  <div class="feature-card"><h3>Discover</h3><p>Search and browse port management from multiple sources. Filter by tag, source, or compatible tool.</p></div>
+  <div class="feature-card"><h3>Install</h3><p>One command to install any management for Claude Code, Cursor, Codex, or Gemini CLI.</p></div>
+  <div class="feature-card"><h3>Multi-Tool</h3><p>Works with Claude Code, Cursor, Codex, Gemini CLI. Install globally or per-project.</p></div>
+</div>
+
+<section id="overview">
+  <h1>Getting Started</h1>
+  <h2>Overview</h2>
+  <p>kill-port aggregates port management from multiple GitHub sources into a searchable registry. Install any management with one command — no cloning repos or copying files.</p>
+</section>
+
+<section id="quickstart">
+  <h2>Quick Start</h2>
+  <pre><code class="language-bash"># Install a management
+npx kill-port install &lt;name&gt;
+
+# Install for Cursor
+npx kill-port install &lt;name&gt; --tool cursor
+
+# Install globally
+npx kill-port install &lt;name&gt; --global
+
+# Search
+npx kill-port search react
+
+# List all
+npx kill-port list</code></pre>
+</section>
+
+<section id="install-cmd">
+  <h1>Commands</h1>
+  <h2>Install</h2>
+  <pre><code class="language-bash">kill-port install &lt;name&gt;                    # Install for Claude Code (default)
+kill-port install &lt;name&gt; --tool cursor       # Install for Cursor
+kill-port install &lt;name&gt; --tool codex        # Install for Codex
+kill-port install &lt;name&gt; --global             # Install globally
+kill-port install &lt;name&gt; -o ./path           # Custom output path</code></pre>
+</section>
+
+<section id="search">
+  <h2>Search</h2>
+  <pre><code class="language-bash">kill-port search react                       # Search by keyword
+kill-port search "api design" --tag backend  # Search with tag filter
+kill-port search react --json                # JSON output</code></pre>
+</section>
+
+<section id="list">
+  <h2>List</h2>
+  <pre><code class="language-bash">kill-port list                                # List all
+kill-port list --tag testing                  # Filter by tag
+kill-port list --tool cursor                  # Filter by tool
+kill-port list --json                         # JSON output</code></pre>
+</section>
+
+<section id="info">
+  <h2>Info</h2>
+  <pre><code class="language-bash">kill-port info &lt;name&gt;                         # Detailed info
+kill-port info &lt;name&gt; --json                 # JSON output</code></pre>
+</section>
+
+<section id="tags">
+  <h2>Tags & Sources</h2>
+  <pre><code class="language-bash">kill-port tags                                # Show all tags with counts
+kill-port sources                             # Show all sources</code></pre>
+</section>
+
+<section id="sources">
+  <h2>Sources</h2>
+  <p>Skills are aggregated from multiple GitHub repositories maintained by the community.</p>
+</section>
+
+<section id="update">
+  <h2>Update Registry</h2>
+  <pre><code class="language-bash">kill-port update                              # Fetch latest from GitHub
+GITHUB_TOKEN=ghp_xxx kill-port update         # With auth for higher rate limits</code></pre>
+</section>
+
+<section id="json">
+  <h2>JSON Output</h2>
+  <pre><code class="language-bash">kill-port list --json
+kill-port search react --json
+kill-port info &lt;name&gt; --json</code></pre>
+  <p>All commands support <code>--json</code> for machine-readable output.</p>
+</section>
+
+<section id="api">
+  <h2>Programmatic API</h2>
+  <pre><code class="language-javascript">const { findSkill, searchSkills, installSkill } = require('kill-port');
+
+const results = searchSkills('react', { tag: 'frontend' });
+const skill = findSkill('react-expert');
+await installSkill(skill, { tool: 'claude-code', global: true });</code></pre>
+</section>
+</div>
+<footer class="footer">
+  <p>kill-port — Kill the process running on a given port</p>
+  <p>Built by Vitalii Semianchuk</p>
+  <p><a href="https://github.com/fix2015/kill-port">GitHub</a> <a href="https://www.npmjs.com/package/kill-port">npm</a></p>
+  <p>MIT License</p>
+</footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
